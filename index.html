@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Spark</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Template Spark</h1>
+    </header>
+
+    <div id="fields" class="box">
+      <h2>Fields</h2>
+
+      <table id="table" class="table">
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="name" value="name" /></td>
+            <td><input type="text" name="name" value="John Doe" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="button" id="saveButton">Save</button>
+    </div>
+
+    <div class="container">
+      <div class="box">
+        <h2>Template</h2>
+        <textarea name="template" id="template">
+Hello, [name]
+
+Edit the data in the fields section and click the generate button to update your document.
+Keys in the 'Fields' table will be auto-loaded from the template. 
+Values will be replaced with the text you provide.
+        </textarea>
+        <button class="button" id="generate">Generate</button>
+      </div>
+
+      <div class="box" id="result">
+        <h2>Result</h2>
+        <p id="result-text"></p>
+      </div>
+    </div>
+
+    <!-- <footer>
+      <p>&copy; 2024 Template Spark</p>
+    </footer> -->
+
+    <script src="index.js"></script>
+  </body>
+</html>
