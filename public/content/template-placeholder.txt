@@ -1,0 +1,5 @@
+Hello, [name]!
+
+Edit the data in the fields section and click the generate button to update your document.
+Keys in the 'Fields' table will be auto-loaded from the template.
+Values will be replaced with the text you provide.

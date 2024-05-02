@@ -1,62 +1,290 @@
+@import url("template-input.css");
+
+:root {
+  --primary: #007bff;
+  --secondary: #0056b3;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+
+  --ts-primary: #ffb300;
+  --ts-secondary: #d13438;
+
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 3rem;
+
+  --shadow-1: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --shadow-2: rgba(149, 157, 165, 0.2) 8px 8px 8px;
+}
+
 * {
   margin: 0;
   padding: 0;
-  /* border: 1px solid #000; */
-  /* height: 100%; */
+  box-sizing: border-box;
+  /* border: 1px dashed #000; */
 }
 
 body {
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--light);
   font-family: "Source Sans Pro", "Arial", sans-serif;
 }
 
 header,
 footer {
-  background: #a1c0f9;
-  box-shadow: 0 0 12px #a1c0f9;
-  padding: 10px;
-  display: block;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-1);
+  background-color: #ffffff;
+  margin: var(--spacing-sm) 0;
+  padding: var(--spacing-sm);
 }
 
-.container {
+/* remove extra margins from header and footer */
+header {
+  margin-top: 0;
+}
+
+footer {
+  margin-bottom: 0;
+}
+
+header > #header-logo-image {
+  width: 48px;
+  height: 48px;
+  margin: 0 var(--spacing-sm);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+th {
+  font-weight: 300;
+  color: #000000;
+  opacity: 0.7;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.form-container,
+.fields-container {
+  margin: 2vh 2vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #dc3545; */
 }
 
-textarea {
-  padding: 4px;
-  width: 100%;
-  min-height: 200px;
-  resize: vertical;
+#template-container,
+#result-container {
+  height: 30vh;
+  min-width: 40vw;
+  min-height: 20vh;
+  /* background-color: green; */
 }
+
+#template-container,
+#result-container,
+#fields-container {
+  border-radius: 8px;
+  /* margin: 0.5em; */
+  padding: var(--spacing-sm);
+  /* border: 1px solid #ccc; */
+  box-shadow: var(--shadow-2);
+  background-color: #ffffff;
+  /* background-color: #f7ce68; */
+}
+
+/* #result-container {
+  border: 1px solid #0056b3;
+  box-shadow: 0 0 7px #a1c0f9;
+} */
 
 .box {
   flex: 1;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  min-width: 200px;
-}
+  margin: 0.5em;
+  padding: 12px;
 
-#result {
-  border: 1px solid #0056b3;
-  box-shadow: 0 0 7px #a1c0f9;
+  border-radius: 4px;
+  min-height: 10vh;
+  max-height: 50vh;
+
+  min-width: 10vw;
+  /* background-color: yellowgreen; */
 }
 
 /* Button styles */
-.button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
+button {
   cursor: pointer;
+  margin: 10px 0;
+  padding: 6px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 4px;
+  display: block;
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+
+  /* btn text */
+  color: #000;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
-.button:hover {
-  background-color: #0056b3;
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+button.primary {
+  color: var(--dark);
+  background: #fbab7e;
+  background-color: #fbab7e;
+  background-image: linear-gradient(
+    62deg,
+    #fbab7e 40%,
+    #f7ce68 50%,
+    #fbab7e 60%
+  );
+  /* box-shadow: 0 0 12px #fbab7e; */
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+button.primary:hover,
+button.primary:focus {
+  animation: none;
+}
+
+button.secondary {
+  appearance: none;
+  background-color: #fafbfc;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292e;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+button.secondary:hover,
+button.secondary:focus {
+  background-color: #f3f4f6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer > .footer-content {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  width: 100%;
+  /* background-color: #d13438; */
+}
+
+footer > .footer-content > .footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+#footer-logo-image {
+  width: 24px;
+  height: 24px;
+  margin: 0 12px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  /* background-color: var(--info); */
+}
+
+.footer-link:hover {
+  transition: 0.5s;
+  color: var(--ts-primary);
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form-container,
+  .fields-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #template-container,
+  #result-container {
+    width: 90vw;
+  }
+
+  #template-input {
+    width: 90vw;
+  }
+
+  .box {
+    width: 90vw;
+  }
+
+  footer > .footer-content {
+    flex-direction: column;
+  }
 }
