@@ -1,0 +1,61 @@
+/* inherits from index.css */
+#template-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: aquamarine; */
+}
+
+/* .textarea-container {
+  position: relative;
+  overflow: auto;
+} */
+
+#template-input,
+#highlightedText {
+  background-color: #f8f8f8;
+  resize: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* height: 90rem; */
+  min-height: 60%;
+  padding: var(--spacing-sm);
+  border: none;
+  border-bottom: thin solid;
+  border-bottom-color: hsl(100deg 50% 25% / 75%);
+}
+
+#template-input {
+  position: relative;
+  background: transparent;
+  z-index: 2;
+}
+
+/* #highlightedText {
+  color: transparent;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#highlightedText mark {
+  color: transparent;
+  background-color: #ffff00;
+} */
+
+/* menu */
+#template-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  /* background-color: #f7ce68; */
+}
+
+#template-menu-button-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: #f7ce68;
+}
