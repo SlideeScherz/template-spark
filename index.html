@@ -5,55 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Template Spark</title>
     <link rel="stylesheet" href="index.css" />
+    <!-- favicons; shoutout to https://favicomatic.com/ -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="public/assets/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="public/assets/favicon-16x16.png"
+      sizes="16x16"
+    />
   </head>
   <body>
     <header>
       <h1>Template Spark</h1>
+      <image
+        id="header-logo-image"
+        alt="logo"
+        src="public/assets/template-spark-icon.png"
+      />
     </header>
 
-    <div id="fields" class="box">
-      <h2>Fields</h2>
-
-      <table id="table" class="table">
-        <thead>
-          <tr>
-            <th>Key</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" name="name" value="name" /></td>
-            <td><input type="text" name="name" value="John Doe" /></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <button class="button" id="saveButton">Save</button>
-    </div>
-
-    <div class="container">
-      <div class="box">
+    <div class="form-container">
+      <div id="template-container">
         <h2>Template</h2>
-        <textarea name="template" id="template">
-Hello, [name]
-
-Edit the data in the fields section and click the generate button to update your document.
-Keys in the 'Fields' table will be auto-loaded from the template. 
-Values will be replaced with the text you provide.
+        <!-- <div class="textarea-container"> -->
+        <textarea
+          name="template"
+          id="template-input"
+          oninput="handleTemplateInput(this);"
+        >
+        <!-- user input here -->
         </textarea>
-        <button class="button" id="generate">Generate</button>
+        <!-- <div id="highlightedText">
+            < !-- cloned text with <mark> tags here -- >
+          </div> -->
+        <!-- </div> -->
+
+        <div id="template-menu">
+          <button
+            id="select-file-button"
+            class="secondary"
+            onclick="handleGeneratePress(this);"
+          >
+            Select File
+          </button>
+          <input id="template-file-input" hidden type="file" />
+
+          <div id="template-menu-button-wrapper">
+            <button
+              id="generate-button"
+              class="primary"
+              onclick="handleGeneratePress(this);"
+            >
+              Generate
+            </button>
+            <button
+              id="clear-template-input-button"
+              class="secondary"
+              onclick="onClearTemplateInputPress(this);"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="box" id="result">
+      <div id="result-container" class="box">
         <h2>Result</h2>
         <p id="result-text"></p>
       </div>
     </div>
 
-    <!-- <footer>
-      <p>&copy; 2024 Template Spark</p>
-    </footer> -->
+    <div id="fields-container" class="fields-container">
+      <div class="box">
+        <h2>Fields</h2>
+
+        <table id="table" class="table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="name" value="name" /></td>
+              <td><input type="text" name="name" value="John Doe" /></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button id="save-fields-button" class="secondary">Save</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <p>Template Spark</p>
+          <image
+            id="footer-logo-image"
+            alt="logo"
+            src="public/assets/template-spark-icon.png"
+          />
+        </div>
+        <a
+          href="https://github.com/SlideeScherz/template-spark"
+          class="footer-link"
+          >Repository</a
+        >
+        <a
+          href="https://github.com/SlideeScherz/template-spark/issues"
+          class="footer-link"
+          >Issues</a
+        >
+      </div>
+      <div id="footer-bottom" class="footer-bottom">
+        <p>&copy; 2024 Scott Scherzer. All rights reserved.</p>
+        <p>
+          This site is open source, view the
+          <a
+            href="https://github.com/SlideeScherz/template-spark"
+            class="footer-link"
+            >source code</a
+          >
+        </p>
+      </div>
+    </footer>
 
     <script src="index.js"></script>
   </body>
